@@ -1,5 +1,5 @@
 # ============================================================
-# EDUPRO DAY 17 — REVENUE PREDICTION DASHBOARD
+# EDUPRO — PREDICTIVE MODELING DASHBOARD
 # ============================================================
 
 import streamlit as st
@@ -686,7 +686,7 @@ with col3:
 st.divider()
 
 predict_button = st.button(
-    "💰 Predict Course Revenue",
+    "🔮 Predict Enrollment & Revenue",
     type="primary",
     use_container_width=True
 )
@@ -1077,12 +1077,38 @@ if "prediction" in st.session_state:
 
 
     # ========================================================
-    # REVENUE RESULTS
+    # OVERALL PREDICTION RESULTS
     # ========================================================
 
     st.divider()
 
-    st.header("💰 Revenue Prediction Results")
+    st.header("🎯 Prediction Results — Enrollment & Revenue")
+
+    # --------------------------------------------------------
+    # ENROLLMENT PREDICTION
+    # --------------------------------------------------------
+
+    st.subheader("📈 Enrollment Prediction")
+
+    enrollment_col1, enrollment_col2 = st.columns(2)
+
+    with enrollment_col1:
+        st.metric(
+            "Predicted Enrollment",
+            f"{predicted_enrollment:,.2f} students"
+        )
+
+    with enrollment_col2:
+        st.metric(
+            "Demand Level",
+            demand_level
+        )
+
+    # --------------------------------------------------------
+    # REVENUE PREDICTION
+    # --------------------------------------------------------
+
+    st.subheader("💰 Revenue Prediction")
 
     kpi1, kpi2, kpi3 = st.columns(3)
 
@@ -1105,6 +1131,39 @@ if "prediction" in st.session_state:
         st.metric(
             "Revenue / Expected Enrollment",
             f"₹{revenue_per_enrollment:,.2f}"
+        )
+
+
+    # ========================================================
+    # ENROLLMENT POTENTIAL
+    # ========================================================
+
+    st.subheader(
+        "📈 Enrollment Potential"
+    )
+
+    if demand_level == "Very High":
+
+        st.success(
+            f"Enrollment Potential: {demand_level}"
+        )
+
+    elif demand_level == "High":
+
+        st.info(
+            f"Enrollment Potential: {demand_level}"
+        )
+
+    elif demand_level == "Moderate":
+
+        st.warning(
+            f"Enrollment Potential: {demand_level}"
+        )
+
+    else:
+
+        st.error(
+            f"Enrollment Potential: {demand_level}"
         )
 
 
@@ -1359,5 +1418,5 @@ st.divider()
 
 st.caption(
     "EduPro Predictive Modeling Project — "
-    "Revenue Dashboard"
+    "Course Demand & Revenue Forecasting Dashboard"
 )
