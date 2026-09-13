@@ -23,10 +23,9 @@ st.set_page_config(
 # ============================================================
 # 2. PROJECT PATHS
 # ============================================================
-
-PROJECT_ROOT = Path(
-    r"D:\Data Analytics Project\EduPro_Predictive_Modeling"
-)
+# Resolve the project root dynamically.
+# Works both locally and on Streamlit Community Cloud.
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 MODELS_FOLDER = PROJECT_ROOT / "models"
 
