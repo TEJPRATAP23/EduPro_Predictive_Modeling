@@ -31,11 +31,11 @@ PROJECT_ROOT = Path(
 MODELS_FOLDER = PROJECT_ROOT / "models"
 
 ENROLLMENT_MODEL_PATH = (
-    MODELS_FOLDER / "model" / "EduPro_Final_Enrollment_Model.joblib"
+    MODELS_FOLDER / "EduPro_Final_Enrollment_Model.joblib"
 )
 
 REVENUE_MODEL_PATH = (
-    MODELS_FOLDER / "model" / "EduPro_Final_Revenue_Model.joblib"
+    MODELS_FOLDER / "EduPro_Final_Revenue_Model.joblib"
 )
 
 
