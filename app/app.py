@@ -21,11 +21,58 @@ st.set_page_config(
 
 
 # ============================================================
+# DASHBOARD BACKGROUND
+# ============================================================
+
+BACKGROUND_IMAGE_URL = (
+    "https://images.unsplash.com/photo-1618044733300-9472054094ee"
+    "?q=80&w=2071"
+)
+
+st.markdown(
+    f"""
+    <style>
+    .stApp {{
+        background-image:
+            linear-gradient(
+                rgba(255, 255, 255, 0.88),
+                rgba(255, 255, 255, 0.88)
+            ),
+            url("{BACKGROUND_IMAGE_URL}");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }}
+
+    [data-testid="stHeader"] {{
+        background: rgba(255, 255, 255, 0.0);
+    }}
+
+    [data-testid="stSidebar"] {{
+        background: rgba(255, 255, 255, 0.90);
+    }}
+
+    [data-testid="stMetric"],
+    [data-testid="stAlert"],
+    .stDataFrame,
+    div[data-testid="stVerticalBlockBorderWrapper"] {{
+        background-color: rgba(255, 255, 255, 0.82);
+        border-radius: 12px;
+    }}
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+
+
+# ============================================================
 # 2. PROJECT PATHS
 # ============================================================
-# Resolve the project root dynamically.
-# Works both locally and on Streamlit Community Cloud.
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
+
+PROJECT_ROOT = Path(
+    r"D:\Data Analytics Project\EduPro_Predictive_Modeling"
+)
 
 MODELS_FOLDER = PROJECT_ROOT / "models"
 
@@ -472,6 +519,13 @@ def predict_course(course_input):
 st.title("📊 EduPro Predictive Modeling Dashboard")
 
 st.caption("Course Demand & Revenue Forecasting")
+
+st.markdown(
+    """
+    This dashboard predicts both **course enrollment demand** and
+    **course revenue** using the final EduPro machine-learning models.
+    """
+)
 
 st.divider()
 
