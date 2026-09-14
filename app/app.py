@@ -452,12 +452,7 @@ def predict_course(course_input):
 
 st.title("📊 EduPro Predictive Modeling Dashboard")
 st.caption("Course Demand & Revenue Forecasting")
-st.markdown(
-    """
-    This dashboard predicts both course enrollment demand and
-    course revenue using the final EduPro machine-learning models.
-    """
-)
+
 st.divider()
 
 # ============================================================
