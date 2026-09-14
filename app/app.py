@@ -70,9 +70,8 @@ st.markdown(
 # 2. PROJECT PATHS
 # ============================================================
 
-PROJECT_ROOT = Path(
-    r"D:\Data Analytics Project\EduPro_Predictive_Modeling"
-)
+# Deployment-safe project root
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 MODELS_FOLDER = PROJECT_ROOT / "models"
 
